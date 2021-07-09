@@ -11,11 +11,13 @@ variable "secret_key" {
 variable "region" {
     description = "Choose the region in which you want to deploy the resources"
     type = "string"
+    default = "us-east-1"
 }
 
 variable "cidr_block" {
     description = "Choose the CIDR block for your VPC"
     type = "string"
+    default = "10.0.0.0/16"
 }
 
 variable "ami" {
@@ -24,8 +26,9 @@ variable "ami" {
 }
 
 variable "instance_type" {
-    description = "Choose an instance type (eg, t2.micro)"
+    description = "Choose an instance type"
     type = "string"
+    default = "t2.micro"
 }
 
 variable "instance_tenancy" {
