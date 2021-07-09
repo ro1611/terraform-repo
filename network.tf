@@ -1,6 +1,7 @@
+#VPC
 resource "aws_vpc" "demo-vpc" {
   cidr_block       = var.cidr_block
-  instance_tenancy = "default"
+  instance_tenancy = var.instance_tenancy
 
   tags = {
     Name = "Demo VPC"
@@ -12,8 +13,8 @@ resource "aws_vpc" "demo-vpc" {
   }
 }
 
-#Public Subnet
 
+#Public Subnet
 resource "aws_subnet" "public-subnet" {
   vpc_id     = "${aws_vpc.demo-vpc.id}"
   cidr_block = "10.0.1.0/24"
@@ -26,7 +27,6 @@ resource "aws_subnet" "public-subnet" {
 }
 
 #Internet Gateway
-
 resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.demo-vpc.id}"
 
@@ -36,6 +36,7 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
+#Route Table
 resource "aws_route_table" "PublicRT" {
   vpc_id = "${aws_vpc.demo-vpc.id}"
 
