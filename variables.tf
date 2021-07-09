@@ -11,13 +11,11 @@ variable "secret_key" {
 variable "region" {
     description = "Choose the region in which you want to deploy the resources"
     type = "string"
-    default = "us-east-1"
 }
 
 variable "cidr_block" {
     description = "Choose the CIDR block for your VPC"
     type = "string"
-    default = "10.0.0.0/16"
 }
 
 variable "ami" {
