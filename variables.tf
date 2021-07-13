@@ -34,3 +34,14 @@ variable "instance_tenancy" {
     type = "string"
     default = "default"
 }
+
+
+variable "sg_ingress_ports" {
+  type        = list(number)
+  description = "list of ingress ports"
+}
+
+variable "sg_egress_ports" {
+  type        = list(number)
+  description = "list of ingress ports"
+}
