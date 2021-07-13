@@ -43,5 +43,5 @@ variable "sg_ingress_ports" {
 
 variable "sg_egress_ports" {
   type        = list(number)
-  description = "list of ingress ports"
+  description = "list of egress ports"
 }
