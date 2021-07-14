@@ -39,12 +39,11 @@ sg_ingress_rules = {
   }
 }
 
-
 sg_egress_rules = {
   "1" = {
     from_port   = 0
     to_port     = 0
-    protocol    = "tcp"
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   },
 
