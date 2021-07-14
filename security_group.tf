@@ -1,31 +1,31 @@
 resource "aws_security_group" "demo-sg" {
   name        = "demo-sg"
   description = "Ingress and Egress Rules"
-  vpc_id = "${aws_vpc.demo-vpc.id}"
+  vpc_id      = "${aws_vpc.demo-vpc.id}"
 
   dynamic "ingress" {
-    for_each = var.sg_ingress_ports
+    for_each = var.sg_ingress_rules
     iterator = port
     content {
-      from_port   = port.value
-      to_port     = port.value
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      from_port   = port.value.from_port
+      to_port     = port.value.to_port
+      protocol    = port.value.protocol
+      cidr_blocks = port.value.cidr_blocks
     }
   }
 
   dynamic "egress" {
-    for_each = var.sg_egress_ports
+    for_each = var.sg_egress_rules
     content {
-      from_port   = egress.value
-      to_port     = egress.value
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      from_port   = egress.value.from_port
+      to_port     = egress.value.to_port
+      protocol    = egress.value.protocol
+      cidr_blocks = egress.value.cidr_blocks
     }
   }
 
   tags = {
-    Name = "Demo SG"
+    Name        = "Demo SG"
     Environment = terraform.workspace
   }
 }

@@ -4,7 +4,7 @@ resource "aws_vpc" "demo-vpc" {
   instance_tenancy = var.instance_tenancy
 
   tags = {
-    Name = "Demo VPC"
+    Name        = "Demo VPC"
     Environment = terraform.workspace
   }
 
@@ -16,12 +16,12 @@ resource "aws_vpc" "demo-vpc" {
 
 #Public Subnet
 resource "aws_subnet" "public-subnet" {
-  vpc_id     = "${aws_vpc.demo-vpc.id}"
-  cidr_block = "10.0.10.0/24"
+  vpc_id                  = "${aws_vpc.demo-vpc.id}"
+  cidr_block              = "10.0.10.0/24"
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "Public-Subnet"
+    Name        = "Public-Subnet"
     Environment = terraform.workspace
   }
 }
@@ -31,7 +31,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.demo-vpc.id}"
 
   tags = {
-    Name = "Public-IGW"
+    Name        = "Public-IGW"
     Environment = terraform.workspace
   }
 }
@@ -46,7 +46,7 @@ resource "aws_route_table" "PublicRT" {
   }
 
   tags = {
-    Name = "Public-RT"
+    Name        = "Public-RT"
     Environment = terraform.workspace
   }
 }
