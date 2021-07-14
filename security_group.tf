@@ -11,6 +11,7 @@ resource "aws_security_group" "demo-sg" {
       to_port     = port.value.to_port
       protocol    = port.value.protocol
       cidr_blocks = port.value.cidr_blocks
+      description = port.value.description
     }
   }
 
