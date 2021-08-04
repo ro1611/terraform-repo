@@ -1,5 +1,5 @@
-access_key    = "XXXXXXXXXX"
-secret_key    = "XXXXXXXXXX"
+access_key    = "AKIA3IR6OIC35BGLXANW"                     #"XXXXXXXXXX"
+secret_key    = "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" #"XXXXXXXXXX"
 region        = "us-east-1"
 cidr_block    = "10.0.0.0/16"
 ami           = "ami-0ab4d1e9cf9a1215a"
@@ -11,7 +11,6 @@ sg_ingress_rules = {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "HTTP"
   },
 
   "2" = {
@@ -19,7 +18,6 @@ sg_ingress_rules = {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "ssh"
   }
 
   "3" = {
@@ -27,7 +25,6 @@ sg_ingress_rules = {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "HTTPS"
   }
 
   "4" = {
@@ -35,7 +32,6 @@ sg_ingress_rules = {
     to_port     = 8443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "HTTPS"
   }
 }
 

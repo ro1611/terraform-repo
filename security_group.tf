@@ -5,13 +5,11 @@ resource "aws_security_group" "demo-sg" {
 
   dynamic "ingress" {
     for_each = var.sg_ingress_rules
-    iterator = port
     content {
-      from_port   = port.value.from_port
-      to_port     = port.value.to_port
-      protocol    = port.value.protocol
-      cidr_blocks = port.value.cidr_blocks
-      description = port.value.description
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
   }
 

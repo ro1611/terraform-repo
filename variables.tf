@@ -48,11 +48,21 @@ variable "instance_tenancy" {
 
 variable "sg_ingress_rules" {
   description = "Ingress security group rules"
-  type        = map
+  type = map(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
 }
 
 variable "sg_egress_rules" {
   description = "Egress security group rules"
-  type        = map
+  type = map(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
 }
 
