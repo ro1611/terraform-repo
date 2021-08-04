@@ -11,6 +11,7 @@ sg_ingress_rules = {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "HTTP"
   },
 
   "2" = {
@@ -18,6 +19,7 @@ sg_ingress_rules = {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "ssh"
   }
 
   "3" = {
@@ -25,6 +27,7 @@ sg_ingress_rules = {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "HTTPS"
   }
 
   "4" = {
@@ -32,6 +35,7 @@ sg_ingress_rules = {
     to_port     = 8443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+     description = "HTTPS"
   }
 }
 

@@ -10,6 +10,7 @@ resource "aws_security_group" "demo-sg" {
       to_port     = ingress.value.to_port
       protocol    = ingress.value.protocol
       cidr_blocks = ingress.value.cidr_blocks
+      description = ingress.value.description
     }
   }
 
